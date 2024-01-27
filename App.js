@@ -1,12 +1,22 @@
 // import { StatusBar } from 'expo-status-bar';
-// import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import Ionicons from '@expo/vector-icons/Ionicons';
 
+import Logo from './assets/tcl.png'
 import Home from './screens/home'
 
 const Stack = createNativeStackNavigator();
+
+function LogoTitle() {
+  return (
+    <Image
+      style={{ width: 200, height: 40 }}
+      source={Logo}
+    />
+  );
+}
 
 export default function App() {
   // const onMenuClick = () => {
@@ -24,7 +34,7 @@ export default function App() {
           name="Home"
           component={Home}
           options={{
-            title: 'thatcovid.life',
+            // title: 'thatcovid.life',
             // headerRight: () => (
             //   <Ionicons.Button
             //     backgroundColor='transparent'
@@ -36,7 +46,8 @@ export default function App() {
             // ),
             headerStyle: {
               backgroundColor: '#ccc'
-            }
+            },
+            headerTitle: () => (<LogoTitle />)
           }}
         />
       </Stack.Navigator>
